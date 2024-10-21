@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Tasks</title>
+    </head>
+    <body>
+        <h1>Task List</h1>
+        <a href="/tasks/new">Create New Task</a>
+        <ul>
+            <li th:each="task : ${tasks}">
+                <a th:href="@{/tasks/{id}(id=${task.id})}" th:text="${task.name}">Task</a>
+                <form th:action="@{/tasks/{id}/delete(id=${task.id})}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        </ul>
+    </body>
+</html>

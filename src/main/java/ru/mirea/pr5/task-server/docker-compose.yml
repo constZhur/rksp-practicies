@@ -1,0 +1,106 @@
+version: '3'
+services:
+
+  app-1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    environment:
+      - NAME_APP=app-1
+      - DB_NAME=decentralized_tasks_db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+    depends_on:
+      - db
+    networks:
+      - app_network
+
+  app-2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    environment:
+      - NAME_APP=app-2
+      - DB_NAME=decentralized_tasks_db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+    depends_on:
+      - db
+    networks:
+      - app_network
+
+  app-3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    environment:
+      - NAME_APP=app-3
+      - DB_NAME=decentralized_tasks_db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+    depends_on:
+      - db
+    networks:
+      - app_network
+
+  app-4:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    environment:
+      - NAME_APP=app-4
+      - DB_NAME=decentralized_tasks_db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+    depends_on:
+      - db
+    networks:
+      - app_network
+
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: decentralized_tasks_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - app_network
+
+  liquibase:
+    image: liquibase/liquibase:latest
+    environment:
+      - LIQUIBASE_URL=jdbc:postgresql://db:5432/decentralized_tasks_db
+      - LIQUIBASE_CHANGELOG_FILE=migrations/changelog/001-create-task-table.xml
+      - LIQUIBASE_USERNAME=postgres
+      - LIQUIBASE_PASSWORD=postgres
+      - LIQUIBASE_DEFAULT_SCHEMA=public
+    volumes:
+      - ./db/changelog:/liquibase/changelog
+    networks:
+      - app_network
+    depends_on:
+      - db
+    command: update
+    
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - app_network
+volumes:
+  db_data:
+networks:
+  app_network:
+    driver: bridge

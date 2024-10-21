@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Task Details</title>
+    </head>
+    <body>
+        <h1>Task Details</h1>
+        <p>ID: <span th:text="${task.id}"></span></p>
+        <p>Name: <span th:text="${task.name}"></span></p>
+        <p>Description: <span th:text="${task.description}"></span></p>
+        <p>Author: <span th:text="${task.author}"></span></p>
+        <a th:href="@{/tasks/{id}/edit(id=${task.id})}">Edit</a>
+    </body>
+</html>

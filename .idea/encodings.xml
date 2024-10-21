@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/mirea/pr4/client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/mirea/pr4/client/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/mirea/pr4/server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/mirea/pr4/server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/mirea/pr5/task-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/mirea/pr5/task-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/mirea/pr7/webflux-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/mirea/pr7/webflux-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/mirea/pr8/auth-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/mirea/pr8/auth-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
